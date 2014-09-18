@@ -1,5 +1,4 @@
 Krawler = require 'krawler'
-Project = require './project'
 events = require 'events'
 Spooky = require 'spooky'
 
@@ -27,7 +26,7 @@ module.exports = class ProjectPageCrawler extends events.EventEmitter
         callback()
     )
 
-  crawlBackers: (url) ->
+  crawlBackers: (url, project_id) ->
     spooky = @createSpooky () ->
       spooky.start url
       spooky.thenEvaluate () ->
@@ -49,7 +48,8 @@ module.exports = class ProjectPageCrawler extends events.EventEmitter
     spooky.on 'backers', (backers) =>
       for backer in backers
         backerData =
-          id: backer
+          user_id: backer,
+          project_id: project_id
         @emit 'backer', backerData
 
   crawlProject: (url) ->
@@ -62,7 +62,7 @@ module.exports = class ProjectPageCrawler extends events.EventEmitter
     spooky.on 'project', (project) =>
       @emit 'project', project
 
-      @crawlBackers "#{url}/backers"
+      @crawlBackers "#{url}/backers", project.id
 
     return this
 
