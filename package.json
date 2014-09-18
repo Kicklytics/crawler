@@ -1,9 +1,11 @@
 {
-  "name": "myproject",
-  "description": "Project template for CoffeeScript projects",
-  "author": "Filipe Fortes <filipe@fortes.com>",
+  "name": "kicklytics-crawler",
+  "description": "Crawler for Kickstarter",
+  "author": "Andrew Gall <housepage@gmail.com>, Alan Meekins <alan.meekins@gmail.com>",
   "version": "0.0.1",
-  "dependencies": {},
+  "dependencies": {
+
+  },
   "devDependencies": {
     "coffee-script": "*",
     "coffeelint": "*",
