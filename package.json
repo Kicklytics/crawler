@@ -4,7 +4,8 @@
   "author": "Andrew Gall <housepage@gmail.com>, Alan Meekins <alan.meekins@gmail.com>",
   "version": "0.0.1",
   "dependencies": {
-
+    "krawler": "^0.3.3",
+    "spooky": "^0.2.4"
   },
   "devDependencies": {
     "coffee-script": "*",
