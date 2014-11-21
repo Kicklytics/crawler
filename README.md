@@ -19,6 +19,7 @@ Project template for client-side JavaScript projects written in CoffeeScript and
 2. Java: For running the Closure compiler
 3. Python: For running Closure build scripts
 4. [PhantomJS](http://phantomjs.org/): For headless testing
+5. CasperJS
 
 ## Instructions
 

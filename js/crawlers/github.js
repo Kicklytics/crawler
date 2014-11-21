@@ -1,11 +1,11 @@
 var events = require('events');
 var url = require('url');
 var CrawlModel = require('../crawl_model');
-var debug = require('debug')('app.Crawlers.KickStarter');
+var debug = require('debug')('app.Crawlers.GitHub');
 var KCrawler = require('../../lib/crawler');
 
-var KickStarter = function(manager){
-  this.crawler = new KCrawler();
+var GitHub = function(manager){
+  this.crawl_status = {};
 
   events.EventEmitter.call(this);
 
@@ -14,27 +14,30 @@ var KickStarter = function(manager){
   return this;
 }
 
-KickStarter.prototype.__proto__ = events.EventEmitter.prototype;
+GitHub.prototype.__proto__ = events.EventEmitter.prototype;
 
-KickStarter.prototype.onRequest = function(path){
+GitHub.prototype.onRequest = function(path){
   var target = url.parse(path);
 
   //debug(target);
 
   if(target.host !== undefined){
-    if(target.host == 'www.kickstarter.com'){
-
-      debug('Starting: ' + target.path);
-
-      this.crawl(path);
+    if(target.host == 'www.github.com'){
+      debug("Requested UI crawl: " + target.path);
+      //Accept request
+      //this.crawl(path);
+    }
+    else if(target.host == 'www.api.github.com'){
+      //this.
+      debug("Requested API crawl: " + target.path);
     }
   }
 }
 
-KickStarter.prototype.crawl = function(path){
+GitHub.prototype.crawl = function(path){
   var startTime = new Date();
 
-  this.crawler.crawlProject(path);
+  //DO CRAWL HERE
 
   this.crawler.on('project', function(project){
     debug("Project: " + project);
@@ -42,7 +45,7 @@ KickStarter.prototype.crawl = function(path){
     var crawl = {
       start_time : startTime,
       end_time : new Date(),
-      cloud : 'kickstarter',
+      cloud : 'GitHub',
       origin : path,
       type : 'project',
       data : project
@@ -56,7 +59,7 @@ KickStarter.prototype.crawl = function(path){
     var crawl = {
       start_time : startTime,
       end_time : new Date(),
-      cloud : 'kickstarter',
+      cloud : 'GitHub',
       origin : path,
       type : 'backer',
       data : backer
@@ -68,4 +71,4 @@ KickStarter.prototype.crawl = function(path){
 
 
 
-module.exports = KickStarter;
+module.exports = GitHub;

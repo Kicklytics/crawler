@@ -9,14 +9,19 @@
   "dependencies": {
     "krawler": "^0.3.3",
     "spooky": "^0.2.4",
-    "express" : "~4.9.2",
+    "express" : "~4.10.2",
     "body-parser" : "~1.8.2",
     "compression" : "~1.1.0",
     "ejs": "~1.0.0",
     "debug" : "~2.0",
-    "morgan": "~1.0.0",
+    "morgan": "~1.5.0",
     "moment" : "~2.8.3",
-    "mongoose" : "~3.8.16"
+    "mongoose" : "~3.8.16",
+    "JSONPath" : "~0.10.0",
+    "stylus": "0.49.3",
+    "errorhandler" : "~1.2.2",
+    "method-override" : "~2.3.0",
+    "socket.io" : "1.2.0"
   },
   "devDependencies": {
     "coffee-script": "*",

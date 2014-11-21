@@ -28,7 +28,7 @@ db_connection.on('open',
 var CrawlStore = function(options){
   events.EventEmitter.call(this);
 
-  this.on('data', this.onData.bind(this.tiler));
+  this.on('data', this.onData.bind(this));
   return this;
 }
 
